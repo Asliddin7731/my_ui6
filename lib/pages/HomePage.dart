@@ -39,11 +39,11 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text('Find the best parties near you.',style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
-              ).animate().slide(begin: const Offset(0,-0.5),duration: 500.ms).fade(duration: 500.ms),
+              const Text('Find the best parties near you.',style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold, height: 1.1),
+              ),
               const SizedBox(height: 30),
               const Text('Let us find you a party for your interest',style: TextStyle(color: Colors.grey, fontSize: 18, fontWeight: FontWeight.w100),
-              ).animate().slide(delay: 200.ms,begin: const Offset(0,-0.5),duration: 200.ms).fade(delay: 300.ms,duration: 500.ms),
+              ),
               const SizedBox(height: 70),
               _isLogin?
               Container(
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                 height: 50,
                 width: double.infinity,
                 child: const Text('Start', style: TextStyle(color: Colors.white),),
-              ).animate().slide(delay: 400.ms,begin: const Offset(0,-0.5),duration: 400.ms).fade(delay: 500.ms,duration: 500.ms)  :
+              )  :
               Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -65,9 +65,9 @@ class _HomePageState extends State<HomePage> {
                 height: 50,
                 width: double.infinity,
                 child: const Text('Google+', style: TextStyle(color: Colors.white),),
-              ).animate().slide(delay: 400.ms,begin: const Offset(0,-0.5),duration: 400.ms).fade(delay: 500.ms,duration: 500.ms),
+              ),
               const SizedBox(height: 10)
-            ],
+            ].animate(interval: 200.ms).slide(begin: const Offset(0,-0.5),duration: 400.ms).fade(duration: 500.ms),
           ),
         ),
       ),
