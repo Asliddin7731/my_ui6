@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final bool _isLogin = true;
+  final bool _isLogin = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,11 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(
             gradient: LinearGradient(
-                begin: Alignment.bottomRight,
+                begin: Alignment.topRight,
                 colors: [
+                  Colors.black87.withOpacity(0.7),
                   Colors.black87.withOpacity(0.6),
                   Colors.black87.withOpacity(0.5),
-                  Colors.black87.withOpacity(0.4),
                   Colors.black87.withOpacity(0.3),
                 ]
             ),
@@ -39,12 +39,12 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text('Find the best parties near you.',style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold, height: 1.1),
+               Text('Find the best parties near you.',style: TextStyle(color: Colors.yellow[400], fontSize: 32, fontWeight: FontWeight.w300, height: 1.1),
               ),
               const SizedBox(height: 30),
-              const Text('Let us find you a party for your interest',style: TextStyle(color: Colors.grey, fontSize: 18, fontWeight: FontWeight.w100),
+               Text('Let us find you a party for your interest',style: TextStyle(color: Colors.teal[200], fontSize: 20, fontWeight: FontWeight.w400, height: 1.2),
               ),
-              const SizedBox(height: 70),
+              const SizedBox(height: 450),
               _isLogin?
               Container(
                 alignment: Alignment.center,
@@ -56,16 +56,33 @@ class _HomePageState extends State<HomePage> {
                 width: double.infinity,
                 child: const Text('Start', style: TextStyle(color: Colors.white),),
               )  :
-              Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.red
-                ),
-                height: 50,
-                width: double.infinity,
-                child: const Text('Google+', style: TextStyle(color: Colors.white),),
-              ),
+                  Row(
+                    children: [
+                      Expanded(child:Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.red
+                        ),
+                        height: 50,
+                        width: double.infinity,
+                        child: const Text('Google', style: TextStyle(color: Colors.white),),
+                      ),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(child:Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.blue
+                        ),
+                        height: 50,
+                        width: double.infinity,
+                        child: const Text('Facebook', style: TextStyle(color: Colors.white),),
+                      ), )
+
+                    ],
+                  ),
               const SizedBox(height: 10)
             ].animate(interval: 200.ms).slide(begin: const Offset(0,-0.5),duration: 400.ms).fade(duration: 500.ms),
           ),
